@@ -39,14 +39,14 @@ export const dashRoutes = [
   },
   {
     name: "Stories",
-    icon: <span class="material-icons">auto_stories</span>,
+    icon: <span className="material-icons">auto_stories</span>,
     path: STORIES,
     component: Stories,
     exact: true
   },
   {
     name: "Campaings",
-    icon: <span class="material-icons route-icon">campaign</span>,
+    icon: <span className="material-icons route-icon">campaign</span>,
     path: CAMPAINGS,
     component: campaigns,
     exact: true

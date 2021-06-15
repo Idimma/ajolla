@@ -2,7 +2,6 @@ import "./styles.scss";
 import Header from "../../components/dashboardHeader/dashboardHeader";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { dashRoutes } from "./dashRoutes";
-import DashboarList from "./dashboardList/dashboardList";
 import React, { useEffect, useContext } from "react";
 import { AuthContext } from "../../context/authContext/authContext";
 
