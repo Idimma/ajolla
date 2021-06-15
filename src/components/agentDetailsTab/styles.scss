@@ -1,0 +1,75 @@
+.agent-details-tab{
+
+  // DRAWER STYLES
+  .ant-drawer-content-wrapper{
+    height: calc(100% - 40px) !important;
+  }
+  .ant-drawer.ant-drawer-open .ant-drawer-mask{
+    display: none;
+  }
+  .ant-drawer-header {
+    display: none;
+  }
+  .ant-drawer-body{
+    padding: 0;
+  }
+
+  // TAB STYLES
+  .ant-tabs-tab{
+    width: 50%;
+  }
+  .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list{
+    width: 100%;
+  }
+  .ant-tabs-tab .ant-tabs-tab-btn{
+    font-family: 'proximas-regular';
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 30.98px;
+    letter-spacing: .4px;
+
+  }
+  .ant-drawer-content{
+    overflow:visible;
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn, .ant-tabs-tab:hover .ant-tabs-tab-{
+    color: rgb(70, 70, 70);
+  }
+  .close-details-btn{
+    position: absolute;
+    top: -35px;
+    right: 5px;
+    outline: 0;
+    color: white;
+    border: none;
+    font-size: 11px;
+    z-index: 1;
+    cursor: pointer;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: rgba(33,33,33,.34);
+    transition: transform .4s ease ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+
+    &.show-btn{
+      animation-name: closeBtnAnimation;
+      animation-duration: .6s;
+      animation-fill-mode: forwards;
+    }
+    @keyframes closeBtnAnimation {
+      from{ visibility: hidden; right: -20px;}
+      to{visibility: visible; right: 5px; }
+    }
+
+  }
+  
+}
+  
