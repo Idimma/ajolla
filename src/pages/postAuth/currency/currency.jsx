@@ -74,6 +74,7 @@ const Currency = () => {
       setLoading(false);
     } catch (err) {
       showAlert("error", err.message);
+      setLoading(false);
     }
   };
 
@@ -98,31 +99,30 @@ const Currency = () => {
       setLoading(false);
       showAlert("success", "Updated");
     } catch (err) {
+      setLoading(false);
       console.log("error", err);
     }
   };
 
   // state value for input
-  const [searchValue, setSearchValue] = useState("");
+  // const [searchValue, setSearchValue] = useState("");
 
   // function checking input
   const checkSearch = e => {
-    setSearchValue(e);
-    if (searchValue.length >= 1) {
-      console.log("start");
-      searchFunction();
-    } else if (searchValue.length === 0) {
-      console.log("new");
+    // setSearchValue(e);
+    if (e.length >= 3) {
+      searchFunction(e);
+    } else if (e.length === 0) {
       getCurrencyData(currentPage);
     }
   };
 
   // search function
-  const searchFunction = async () => {
+  const searchFunction = async e => {
     setLoading(true);
     let config = {
       method: "get",
-      url: `${BASE_URI}/currency?q=${searchValue}`,
+      url: `${BASE_URI}/currency?q=${e}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("user-token")}`
       }
@@ -141,6 +141,7 @@ const Currency = () => {
       setLoading(false);
     } catch (err) {
       console.log("error", err);
+      setLoading(false);
     }
 
     // setLoading(true);
@@ -160,7 +161,7 @@ const Currency = () => {
           <input
             type="text"
             placeholder="Search Currency"
-            value={searchValue}
+            // value={searchValue}
             onChange={e => checkSearch(e.target.value)}
           />
         </div>

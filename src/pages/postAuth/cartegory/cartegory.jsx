@@ -61,32 +61,28 @@ const Cartegory = () => {
       setCategoriesData(dataReturned.data.data.data);
       setTotalCategoty(dataReturned.data.data.total);
     } catch (err) {
+      setLoading(false);
       showAlert("error", err.message);
     }
   };
 
-  // state for search input
-  const [searchValue, setSearchValue] = useState("");
-
   // function checking search value
   const checkSearch = e => {
-    setSearchValue(e);
-    if (searchValue.length >= 1) {
-      console.log("start");
-      searchFunction();
-    } else if (searchValue.length === 0) {
-      console.log("new");
+    // setSearchValue(e);
+    if (e.length >= 3) {
+      searchFunction(e);
+    } else if (e.length === 0) {
       getCartegoryData(currentPage);
     }
   };
 
   // Search function
-  const searchFunction = async () => {
+  const searchFunction = async e => {
     setLoading(true);
 
     let config = {
       method: "get",
-      url: `${BASE_URI}/currency?q=${searchValue}`,
+      url: `${BASE_URI}/currency?q=${e}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("user-token")}`
       }
@@ -100,8 +96,9 @@ const Cartegory = () => {
       } else {
         setTotalCategoty(userDataReturned.data.data.data);
       }
-      setLoading(true);
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       console.log("error", err);
     }
   };
@@ -127,7 +124,7 @@ const Cartegory = () => {
           <input
             type="text"
             placeholder="Search Cartegory"
-            value={searchValue}
+            // value={searchValue}
             onChange={e => checkSearch(e.target.value)}
           />
         </div>

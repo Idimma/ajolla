@@ -66,6 +66,7 @@ const Country = () => {
       setLoading(false);
     } catch (err) {
       console.log(err.message);
+      setLoading(false);
     }
   };
 
@@ -91,33 +92,28 @@ const Country = () => {
     } catch (err) {
       console.log(err);
       showAlert("error", err.message);
+      setLoading(false);
     }
   };
 
-  // state for search input
-  const [searchValue, setSearchValue] = useState("");
-
   // function shecking search input
   const checkSearch = e => {
-    setSearchValue(e);
-    if (searchValue.length >= 1) {
-      console.log("start");
-      searchFunction();
-    } else if (searchValue.length === 0) {
-      console.log("new");
+    if (e.length >= 3) {
+      searchFunction(e);
+    } else if (e.length === 0) {
       getCountry(currentPage);
     }
   };
 
   // search function
-  const searchFunction = async () => {
+  const searchFunction = async e => {
+    setLoading(true);
     let config = {
       method: "get",
-      url: `${BASE_URI}/currency?q=${searchValue}`,
+      url: `${BASE_URI}/country?q=${e}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("user-token")}`
       }
-      // data:
     };
     try {
       // eslint-disable-next-line
@@ -130,11 +126,11 @@ const Country = () => {
       } else {
         setTotalCountries(dataReturned.data.data.data);
       }
+      setLoading(false);
     } catch (err) {
       console.log("error", err);
+      setLoading(false);
     }
-
-    // setLoading(true);
   };
 
   useEffect(() => {
@@ -155,7 +151,7 @@ const Country = () => {
           <input
             type="text"
             placeholder="Search Country"
-            value={searchValue}
+            // value={searchValue}
             onChange={e => checkSearch(e.target.value)}
           />
         </div>
