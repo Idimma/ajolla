@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import SideNav from "../sideNav/sideNav";
 import { DASHBOARD } from "../../routes";
 import ajollaLogo from "../../images/AjollaLogo.png";
-import settingIcon from "../../images/SettingIcon.png";
+// import settingIcon from "../../images/SettingIcon.png";
 import rotate from "../../images/rotate-cw.png";
 import searchIcon from "../../images/searchIcon.png";
 

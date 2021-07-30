@@ -33,6 +33,7 @@ const CampaingCard = ({ campaingDetails }) => {
             <img
               src={campaingDetails.user.cover_photo}
               className="creator-img"
+              alt="icon"
             />
             <span className="creator-name">
               by <span>{campaingDetails.user.name}</span>
