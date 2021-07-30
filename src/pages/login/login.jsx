@@ -34,7 +34,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   // function for login
-  const login = e => {
+  const login = (e) => {
     // prevent defaulf submiting of form
     e.preventDefault();
 
@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   //function for reseting password
-  const reset = e => {
+  const reset = (e) => {
     e.preventDefault();
     const submitObject = { email };
     restPassword(submitObject);
@@ -63,18 +63,8 @@ const Login = () => {
 
   return (
     <div className="login">
-      {/*<div className="login-header">*/}
-      {/*  <div className="brand-logo">*/}
-      {/*    <img src="https:app.tookanapp.com/app/img/outer_logo.svg" alt=""/>*/}
-      {/*  </div>*/}
-      {/*  <div className="powered-by">*/}
-      {/*    <span>Powered By</span>*/}
-      {/*    <img src="https:app.tookanapp.com/app/img/jw-logo-new.svg" alt=""/>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-
       {location.pathname === "/" ? (
-        <form className="form regiter" onSubmit={e => login(e)}>
+        <form className="form regiter" onSubmit={(e) => login(e)}>
           <p className="form-heading">Login</p>
 
           <div className="email-input">
@@ -88,7 +78,7 @@ const Login = () => {
               type="email"
               name="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter Email"
             />
           </div>
@@ -103,7 +93,7 @@ const Login = () => {
               type="password"
               name="password"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter Password"
               ref={passwordRef}
             />
@@ -121,7 +111,7 @@ const Login = () => {
           {/*<span className="custom-register-span">Don't have an account?</span> <NavLink to="/">Sign Up</NavLink>*/}
         </form>
       ) : (
-        <form className="form recover" onSubmit={e => reset(e)}>
+        <form className="form recover" onSubmit={(e) => reset(e)}>
           <p className="form-heading">Reset Password</p>
           <p className="custom-register-span">
             Enter your email to receive instructions on how to reset your
@@ -138,7 +128,7 @@ const Login = () => {
               type="email"
               name="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter Email"
             />
           </div>

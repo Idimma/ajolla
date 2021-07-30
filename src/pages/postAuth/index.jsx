@@ -17,11 +17,10 @@ const Dashboard = () => {
   });
 
   return (
-    <React.Fragment>
+    <div className="app-content">
       <Header />
-
       <Switch>
-        {dashRoutes.map(dashRoute => (
+        {dashRoutes.map((dashRoute) => (
           <Route
             exact={dashRoute.exact}
             path={dashRoute.path}
@@ -30,7 +29,7 @@ const Dashboard = () => {
           />
         ))}
       </Switch>
-    </React.Fragment>
+    </div>
   );
 };
 

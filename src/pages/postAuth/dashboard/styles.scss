@@ -1,94 +1,431 @@
-.dashboard{
-  background-color: white;
-  overflow: hidden;
+.dashboard {
+  display: flex;
+  height: 100%;
+  height: calc(100vh - 60px);
+  .campaigns-tabs {
+    max-width: 375px;
+    min-width: 375px;
+    width: 100%;
 
-  &.dashboard-mobile{
-    display: none;
-  }
-
-  .dashboard-task-wrapper{
-   transition: margin .3s ease;
-    max-width: 370px;
-    min-width: 370px;
-
-    &.collapse{
-      transition: margin .3s ease;
-      margin-left: -370px;
+    .tabs {
+      height: calc(100vh - 60px);
     }
   }
-  
-  .dashboard-map-wrapper{
-    position: relative;
-    
+  .dashboard-content {
+    height: calc(100vh - 60px);
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-bottom: 30px;
 
-    .collapse-sidebar {
-      position: absolute;
-      width: 35px;
-      height: 39px;
-      background: #717171;
-      z-index: 1;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 0 0 4px;
+    .top-cards {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 10px;
+      .single-card {
+        min-width: 24%;
+        min-height: 140px;
+        padding-left: 27px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white;
+        box-shadow: 0.5px 3px 10px rgba(119, 119, 119, 0.1);
+
+        &.total-campaing-card {
+          background: linear-gradient(
+              163.9deg,
+              #6045fb -10.47%,
+              #ffb7d5 124.06%
+            ),
+            #ffffff;
+
+          .card-label {
+            color: white;
+          }
+          .total-campaing {
+            font-weight: normal;
+            font-size: 34px;
+            line-height: 41px;
+            color: white;
+          }
+        }
+
+        .card-label {
+          font-weight: bold;
+          font-size: 15px;
+          color: #abafb3;
+          text-transform: uppercase;
+        }
+        .total-user {
+          font-weight: normal;
+          font-size: 34px;
+          color: #fe60ad;
+        }
+        .total-amount-raised,
+        .previous-day-raised {
+          font-weight: 500;
+          font-size: 34px;
+        }
+        .total-amount-raised {
+          color: #43e794;
+        }
+        .previous-day-raised {
+          color: #fe3153;
+        }
+      }
+    }
+    .campaing-chart {
+      background-color: white;
+      border-radius: 14px;
+      padding-left: 50px;
+      padding-right: 37px;
+      margin-left: 31px;
+      margin-right: 25px;
+    }
+
+    .ratings {
+      margin-left: 23px;
+      margin-right: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .single-card {
+        min-width: 48%;
+        max-width: 48%;
+        min-height: 194px;
+        padding-left: 63px;
+        padding-top: 32px;
+        background-color: white;
+        border-radius: 14px;
+        margin-bottom: 20px;
+
+        .heading {
+          font-weight: bold;
+          font-size: 12px;
+          line-height: 15px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #414141;
+        }
+        > div:nth-child(2) {
+          margin-top: 23px;
+          margin-bottom: 16px;
+          display: flex;
+
+          img {
+            margin-right: 29px;
+          }
+          span {
+            font-weight: normal;
+            font-size: 32px;
+            line-height: 38px;
+            text-transform: uppercase;
+          }
+        }
+        .card-text {
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 22px;
+          color: #6d7278;
+        }
+
+        &.likes {
+          > div:nth-child(2) {
+            color: #6045fb;
+          }
+          .card-text {
+            span {
+              color: #6045fb;
+            }
+          }
+        }
+        &.reviews {
+          > div:nth-child(2) {
+            color: #26c8f0;
+          }
+          .card-text {
+            span {
+              color: #26c8f0;
+            }
+          }
+        }
+        &.shared {
+          > div:nth-child(2) {
+            color: #20e0a5;
+          }
+          .card-text {
+            span {
+              color: #20e0a5;
+            }
+          }
+        }
+        &.shipment {
+          > div:nth-child(2) {
+            color: #6236ff;
+          }
+          .card-text {
+            span {
+              color: #6236ff;
+            }
+          }
+        }
+      }
+    }
+
+    .large-cards {
+      margin-left: 23px;
+      margin-right: 25px;
+      display: flex;
+
+      .views {
+        max-width: 587px;
+        min-width: 587px;
+        max-width: 60%;
+        min-width: 60%;
+        margin-right: 23px;
+        .views-engagement {
+          width: 100%;
+          padding: 22px 33px;
+          border-radius: 14px;
+          margin-bottom: 20px;
+          background-color: #ffffff;
+          .heading {
+            font-size: 22px;
+            line-height: 26px;
+            display: flex;
+            align-items: center;
+            color: #414141;
+            margin-bottom: 20px;
+          }
+          .views-engagement-count {
+            display: flex;
+            justify-content: space-between;
+
+            .count {
+              font-size: 35px;
+              line-height: 42px;
+              color: #6a707e;
+              display: block;
+            }
+            .label {
+              font-size: 18px;
+              line-height: 22px;
+              color: #abafb3;
+              display: block;
+            }
+          }
+        }
+        .highest-reviews {
+          width: 100%;
+          padding: 30px 25px 26px 0;
+          background-color: white;
+          border-radius: 14px;
+          .heading {
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            color: #414141;
+            margin-bottom: 27px;
+            text-align: center;
+          }
+          .user-details {
+            padding-left: 61px;
+            display: flex;
+            align-items: center;
+            img {
+              margin-right: 26px;
+              width: 120px;
+              height: 120px;
+              border-radius: 50%;
+            }
+
+            .details {
+              width: 100%;
+              .name {
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 22px;
+                color: #414141;
+                margin-bottom: 10px;
+              }
+              .campaing-type {
+                font-size: 14px;
+                line-height: 17px;
+                color: #414141;
+
+                span {
+                  margin-left: 10px;
+                }
+              }
+              .reiews {
+                width: 100%;
+                margin-top: 34px;
+                display: flex;
+                justify-content: space-between;
+
+                .total-reviews {
+                  .progress-bar {
+                    width: 118.57px;
+                    height: 4.53px;
+                    background: #eeeeee;
+                    border-radius: 4.52601px;
+                    overflow: hidden;
+
+                    .bar-status {
+                      width: 75.41px;
+                      width: 80%;
+                      height: 4.53px;
+                      background: #6045fb;
+                      border-radius: 4.52601px;
+                      transition: width 0.9s ease;
+                    }
+                  }
+                  span {
+                    margin-top: 5px;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: #6d7278;
+                  }
+                }
+                .ratings {
+                  span:nth-child(1) {
+                    font-size: 14px;
+                    line-height: 22px;
+                    font-weight: bold;
+                    color: #414141;
+                    margin-right: 11px;
+                  }
+                  span:nth-child(2) {
+                    svg {
+                      margin-right: 5px;
+                      fill: #ffc935;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .camping-cartegories {
+        background-color: white;
+        box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.04);
+        border-radius: 14px;
+        min-height: 100%;
+      }
+    }
+
+    .campaign-statistics {
+      margin-left: 23px;
+      margin-right: 25px;
+      .heading {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 54px;
+        letter-spacing: 0.44px;
+        color: #6a707e;
+      }
+      .sub-heading {
+        font-size: 18px;
+        letter-spacing: 0.36px;
+        color: #6a707e;
+      }
+
+      .statistics-card {
+        margin-top: 7px;
+        background-color: white;
+        padding-left: 46px;
+        display: flex;
+        align-items: center;
+        height: 84px;
+
+        .status {
+          font-size: 18px;
+          line-height: 54px;
+          letter-spacing: 0.36px;
+          min-width: 100px;
+          margin-right: 90px;
+        }
+        .text {
+          font-size: 18px;
+          line-height: 54px;
+          letter-spacing: 0.36px;
+          color: #abafb3;
+        }
+
+        &.completed {
+          .status {
+            color: #4fc7a5;
+          }
+        }
+        &.ongoing {
+          .status {
+            color: #ff7235;
+          }
+        }
+        &.reported {
+          .status {
+            color: #f67575;
+          }
+        }
+      }
+    }
+
+    .camping-cartegories {
+      width: 100%;
+      background-color: red;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      .sub-header {
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #616161;
+      }
+      .ratings-review {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        width: 210px;
 
-      &.right {
-        top: 0;
-        right: 0;
-        border-radius: 0 0 0 4px;
+        div {
+          span {
+            display: block;
+
+            &:nth-child(1) {
+              font-weight: 500;
+              font-size: 32px;
+              line-height: 44px;
+              text-transform: uppercase;
+              color: #000000;
+            }
+            &:nth-child(2) {
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 22px;
+              color: #6d7278;
+            }
+          }
+        }
       }
     }
   }
+  .empty {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  .dashboard-delegates-wrapper{
-    transition: margin .3s ease;
-    max-width: 370px;
-    min-width: 370px;
-
- 
-     &.collapse{
-       transition: margin .3s ease;
-       margin-right: -370px;
-     }
-   }
-   
-  @media (max-width: 768px) {
-    &.dashboard-large-screen{
-       display: none;
-    }
-    &.dashboard-mobile{
-      display: block;
-    }
-    
-    &> .tab-component {
-    
-      &> .ant-tabs {
-        &> .ant-tabs-content-holder {
-          height: calc(100vh - 100px);
-          //  overflow-y: hidden;
-          //  height: fit-content;
-        }
-
-        > .ant-tabs-nav {
-          background-color: rgb(19, 148, 255) !important;
-          height: 45px;
-
-          .ant-tabs-tab-btn{
-            color: white;
-            font-family: 'montserrat-light' !important;
-            text-transform: uppercase;
-            letter-spacing: 1.3px;
-            text-decoration: none!important;
-            font-size: 11px;
-          }
-  
-          .ant-tabs-ink-bar {
-            background: white;
-          }
-        }
-      }
+    span {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: #c4c4c4;
     }
   }
 }

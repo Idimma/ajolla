@@ -5,6 +5,7 @@ import { dashRoutes } from "../../pages/postAuth/dashRoutes";
 import SideNavLink from "./sideNavLink";
 import { Link } from "react-router-dom";
 import { DASHBOARD } from "../../routes.js";
+import ajollaLogo from "../../images/AjollaLogo.png";
 const SideNav = ({ toggleSideNav, showSideNav }) => {
   return (
     <Drawer
@@ -29,16 +30,13 @@ const SideNav = ({ toggleSideNav, showSideNav }) => {
 
         <div className="logo">
           <Link to={DASHBOARD}>
-            <img
-              src="https://res.cloudinary.com/djnhrvjyf/image/upload/v1618660904/logo_r8zeo7.png"
-              alt="app-logo"
-            />
+            <img src={ajollaLogo} alt="app-logo" />
           </Link>
         </div>
       </div>
 
       <div className="side-nav-links">
-        {dashRoutes.map(routes => (
+        {dashRoutes.map((routes) => (
           <div onClick={toggleSideNav} key={routes.path}>
             <SideNavLink route={routes} />
           </div>

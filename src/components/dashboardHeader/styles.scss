@@ -1,4 +1,4 @@
-.header{
+.header {
   display: flex;
   align-items: center;
   color: white;
@@ -7,116 +7,77 @@
   margin-left: 0;
   width: 100%;
   padding-left: 24px;
-  padding-right: 29.5px;
+  padding-right: 60px;
 
   @media (max-width: 768px) {
     padding-left: 16px;
   }
 
-
-  .menu-button{
+  .menu-button {
     align-self: center;
     margin-right: 15px;
     cursor: pointer;
 
-    div{
-      border: 1px solid white;
-      border-radius: 5px;
+    div {
+      border: 2px solid white;
+      box-sizing: border-box;
+      border-radius: 3px;
     }
-    div:nth-child(1){
-      width: 15px;
+    div:nth-child(1) {
+      width: 18.75px;
     }
-    div:nth-child(2){
-      width: 20px;     
-      margin: 4px 0;
+    div:nth-child(2) {
+      width: 25px;
+      margin: 5px 0;
     }
-    div:nth-child(3){
-      width: 15px;
-      
+    div:nth-child(3) {
+      width: 18.75px;
     }
   }
-  .logo{
+  .logo {
     align-self: center;
-    height: 45px;
-    margin-right: 70px;
-
-    img{
-      height: 100%;
-    }
+    margin-left: 41px;
 
     @media (max-width: 768px) {
       width: 150px;
       margin-right: auto;
     }
   }
-
-  .filters{
-    align-self: center;
+  .header-options {
     display: flex;
-    font-size: 14px;
-
-    @media (max-width: 768px){
-      display: none;
-    }
-    
-    .date-time{
-      margin-left: 13px;
-    }
-  }
-
-  .create-task-btn-wrapper{
-    font-size: 14px;
-    font-family: 'montserrat-light' !important;
-    align-self: center;
-    margin-left: auto;
-    color: black;
-    display: flex;
-    cursor: pointer;
-    min-width: 130px;
-  }
-  .refresh-page{
-    align-self: center;
-    padding: 7px;
-    cursor: pointer;
-    margin-left: auto;
-
-    &:hover{
-      background-color: rgba(128,128,128,.57);
-    }
-
-    .refresh-page-icon{
-      transform: rotate(-70deg);
-      font-size: 21px;
-    }
-  }
-
-  .customer-header{
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    
-    @media (max-width: 768px){
-      display: none;
-    }
-  }
-
-  .post-header, .charity-header, .doantion-header{
     margin-left: auto;
-    @media (max-width: 768px){
-      display: none;
+
+    .search {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        border: 1px solid rgba(138, 138, 138, 0.8);
+        border-radius: 10px;
+        height: 45px;
+        width: 304.96px;
+        padding-left: 51px;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 18px;
+      }
+    }
+    .settings-icon {
+      margin-left: 13px;
+      margin-right: 43px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .reload-icon {
+      cursor: pointer;
+      filter: invert(100%) sepia(3%) saturate(13%) hue-rotate(56deg)
+        brightness(105%) contrast(106%);
     }
   }
-
-
-  .mobile-filter{
-    display: none;
-
-    @media (max-width: 768px){
-      display: block;
-      align-self: center;
-      margin-left: 10px;
-    }
-  }
-
 }

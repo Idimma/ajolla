@@ -1,0 +1,100 @@
+.campaing-card {
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.07);
+  max-width: 350px;
+  width: 100%;
+
+  .card-header {
+    img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+  .card-body {
+    padding: 10px 15px;
+
+    .campaing-details {
+      padding: 5px 0;
+      border: 1px dashed rgba(177, 177, 177, 0.5);
+      border-right: none;
+      border-left: none;
+      display: flex;
+
+      > div:nth-child(1) {
+        max-width: 247px;
+        min-width: 247px;
+        width: 100% !important;
+
+        .campaing-name {
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 18px;
+          letter-spacing: -0.01em;
+          color: #414141;
+        }
+        .about-details {
+          margin: 10px 0;
+          font-weight: normal;
+          font-size: 10px;
+          line-height: 12px;
+          color: #414141;
+        }
+        .campaing-funds {
+          display: inline-block;
+          font-weight: normal;
+          line-height: 17px;
+          letter-spacing: -0.03em;
+          color: #414141;
+          margin-right: 81px;
+
+          .total-funds {
+            font-size: 10px;
+          }
+        }
+        .campaing-status {
+          display: inline-block;
+          font-weight: normal;
+          font-size: 8px;
+          line-height: 10px;
+          color: #4fc7a5;
+        }
+      }
+      > div:nth-child(2) {
+        text-align: right;
+      }
+    }
+    .campaing-creator {
+      width: 100%;
+
+      .status {
+        .ant-progress-text {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 7px;
+          color: #414141;
+        }
+      }
+      .creator-img {
+        margin-top: 10px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+      .creator-name {
+        margin-top: 5px;
+        display: block;
+        font-size: 8px;
+        line-height: 12px;
+        color: #414141;
+        span {
+          color: #6045fb;
+        }
+      }
+    }
+  }
+}

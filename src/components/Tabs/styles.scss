@@ -1,61 +1,59 @@
-.tab-component{
-
-
+.tab-component {
+  height: 100%;
   // TABS
-  .ant-tabs-tab{
-    // width: 33%;
-    // flex-grow: 1;
-    width: 50%;
-    justify-content: center;
-    padding: 5px 0;
+
+  .ant-tabs {
+    height: 100%;
   }
-  .ant-tabs-top > .ant-tabs-nav{
+  .ant-tabs-tab {
+    font-feature-settings: normal !important;
+    font-variant: normal !important;
+    justify-content: center;
+    padding: 13px 0;
+    height: 100%;
+  }
+  .ant-tabs-top > .ant-tabs-nav {
     margin-bottom: 0px;
   }
-  .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list{
+  .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
     justify-content: space-around;
     width: 100%;
   }
-  .ant-tabs-tab + .ant-tabs-tab{
-    margin: 0 0 0 0;
-  }
-  .ant-tabs-tab .ant-tabs-tab-btn{
-    color: rgba(0,0,0,.41);
-    font-size: 10px;
-    letter-spacing: 1.6px;
-    line-height: 32px;
+  .ant-tabs-tab .ant-tabs-tab-btn {
+    color: rgba(0, 0, 0, 0.41);
+    font-size: 12px;
     font-weight: 600;
-    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
   }
-  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn, .ant-tabs-tab:hover .ant-tabs-tab-btn {
-    color: rgb(14, 14, 14);
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn,
+  .ant-tabs-tab:hover .ant-tabs-tab-btn {
+    color: black;
   }
   .ant-tabs-ink-bar {
-    position: absolute;
-    background: rgb(19, 148, 255);
-    height: 3px !important;
-    pointer-events: none;
-    transition: none !important;
+    display: none;
   }
 
-  .ant-tabs-content-holder{
-    height: calc(100vh - 142px);
+  .ant-tabs-content-holder {
+    padding-left: 10px;
+    padding-right: 10px;
     overflow-y: scroll;
+    background-color: white;
 
-
-    &:hover{
+    &:hover {
       &::-webkit-scrollbar-thumb {
         background: rgb(19, 148, 255);
+        // background-color: red;
       }
     }
-      /* width */
+    /* width */
     &::-webkit-scrollbar {
       width: 5px;
     }
 
     /* Track */
     &::-webkit-scrollbar-track {
-      background: #eaedf0;
+      background: #e0e0e0;
     }
 
     /* Handle */
@@ -67,7 +65,5 @@
     &::-webkit-scrollbar-thumb:hover {
       background: #555;
     }
-
   }
-  
 }

@@ -1,18 +1,36 @@
 import "./styles.scss";
-import { useLocation, Link } from "react-router-dom";
-import FilterDate from "./FilterDateTime/FilterDateTime";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import SideNav from "../sideNav/sideNav";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRedo } from "@fortawesome/free-solid-svg-icons";
-import MobileFilters from "./mobileFilters/mobileFilter";
-
 import { DASHBOARD } from "../../routes";
+import ajollaLogo from "../../images/AjollaLogo.png";
+import settingIcon from "../../images/SettingIcon.png";
+import rotate from "../../images/rotate-cw.png";
+import searchIcon from "../../images/searchIcon.png";
+
+const settingsIcon = (
+  <svg
+    width="31"
+    height="30"
+    viewBox="0 0 31 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15.9698 18.9048C18.2292 18.9048 20.0608 17.0911 20.0608 14.8538C20.0608 12.6164 18.2292 10.8027 15.9698 10.8027C13.7105 10.8027 11.8789 12.6164 11.8789 14.8538C11.8789 17.0911 13.7105 18.9048 15.9698 18.9048Z"
+      fill="white"
+      fill-opacity="0.6"
+    />
+    <path
+      d="M26.0597 18.9047C25.8781 19.312 25.824 19.7638 25.9042 20.2019C25.9844 20.6399 26.1953 21.0441 26.5097 21.3624L26.5915 21.4434C26.8451 21.6942 27.0462 21.9921 27.1835 22.3199C27.3207 22.6478 27.3913 22.9992 27.3913 23.3541C27.3913 23.709 27.3207 24.0605 27.1835 24.3883C27.0462 24.7162 26.8451 25.014 26.5915 25.2648C26.3382 25.5159 26.0374 25.7151 25.7063 25.8511C25.3752 25.987 25.0203 26.0569 24.6619 26.0569C24.3035 26.0569 23.9486 25.987 23.6175 25.8511C23.2865 25.7151 22.9857 25.5159 22.7324 25.2648L22.6506 25.1838C22.3292 24.8725 21.921 24.6637 21.4786 24.5843C21.0363 24.5048 20.58 24.5585 20.1688 24.7382C19.7654 24.9094 19.4215 25.1936 19.1792 25.5559C18.9369 25.9182 18.8069 26.3427 18.8051 26.7772V27.0068C18.8051 27.723 18.5178 28.41 18.0063 28.9165C17.4949 29.4229 16.8012 29.7075 16.0778 29.7075C15.3545 29.7075 14.6608 29.4229 14.1494 28.9165C13.6379 28.41 13.3506 27.723 13.3506 27.0068V26.8853C13.34 26.4383 13.1939 26.0048 12.9313 25.6412C12.6686 25.2775 12.3016 25.0006 11.8778 24.8462C11.4665 24.6665 11.0103 24.6129 10.5679 24.6923C10.1256 24.7717 9.7174 24.9805 9.39602 25.2919L9.3142 25.3729C9.06091 25.624 8.76013 25.8232 8.42904 25.9591C8.09796 26.095 7.74306 26.1649 7.38466 26.1649C7.02625 26.1649 6.67136 26.095 6.34028 25.9591C6.00919 25.8232 5.7084 25.624 5.45511 25.3729C5.20154 25.1221 5.00038 24.8242 4.86313 24.4963C4.72588 24.1685 4.65524 23.8171 4.65524 23.4621C4.65524 23.1072 4.72588 22.7558 4.86313 22.4279C5.00038 22.1001 5.20154 21.8022 5.45511 21.5514L5.53693 21.4704C5.8513 21.1521 6.06218 20.7479 6.14239 20.3099C6.2226 19.8719 6.16845 19.4201 5.98693 19.0128C5.81407 18.6134 5.52705 18.2728 5.1612 18.0328C4.79535 17.7929 4.36664 17.6642 3.92784 17.6624H3.69602C2.97271 17.6624 2.27901 17.3779 1.76755 16.8714C1.25609 16.365 0.96875 15.678 0.96875 14.9618C0.96875 14.2455 1.25609 13.5586 1.76755 13.0521C2.27901 12.5456 2.97271 12.2611 3.69602 12.2611H3.81875C4.27011 12.2506 4.70785 12.106 5.07507 11.8459C5.44229 11.5858 5.722 11.2223 5.87784 10.8027C6.05936 10.3954 6.11351 9.94364 6.0333 9.50559C5.95309 9.06755 5.74221 8.66334 5.42784 8.3451L5.34602 8.26408C5.09245 8.01326 4.89129 7.7154 4.75404 7.38754C4.61679 7.05969 4.54615 6.70826 4.54615 6.35335C4.54615 5.99843 4.61679 5.647 4.75404 5.31915C4.89129 4.99129 5.09245 4.69344 5.34602 4.44262C5.59931 4.19152 5.9001 3.99232 6.23119 3.85641C6.56227 3.7205 6.91716 3.65054 7.27557 3.65054C7.63397 3.65054 7.98887 3.7205 8.31995 3.85641C8.65104 3.99232 8.95182 4.19152 9.20511 4.44262L9.28693 4.52364C9.60831 4.83494 10.0165 5.04377 10.4589 5.12319C10.9012 5.20262 11.3575 5.149 11.7688 4.96925H11.8778C12.2812 4.79808 12.6251 4.51385 12.8674 4.15157C13.1097 3.78929 13.2397 3.36476 13.2415 2.93024V2.70068C13.2415 1.98441 13.5288 1.29749 14.0403 0.79101C14.5517 0.284535 15.2454 0 15.9688 0C16.6921 0 17.3858 0.284535 17.8972 0.79101C18.4087 1.29749 18.696 1.98441 18.696 2.70068V2.82221C18.6978 3.25673 18.8278 3.68126 19.0701 4.04354C19.3124 4.40583 19.6563 4.69005 20.0597 4.86122C20.471 5.04097 20.9272 5.09459 21.3696 5.01517C21.8119 4.93574 22.2201 4.72691 22.5415 4.41561L22.6233 4.33459C22.8766 4.08349 23.1774 3.88429 23.5085 3.74838C23.8395 3.61247 24.1944 3.54252 24.5528 3.54252C24.9112 3.54252 25.2661 3.61247 25.5972 3.74838C25.9283 3.88429 26.2291 4.08349 26.4824 4.33459C26.736 4.58541 26.9371 4.88326 27.0744 5.21112C27.2116 5.53898 27.2823 5.89041 27.2823 6.24532C27.2823 6.60023 27.2116 6.95166 27.0744 7.27952C26.9371 7.60737 26.736 7.90523 26.4824 8.15605L26.4006 8.23707C26.0862 8.55532 25.8753 8.95952 25.7951 9.39757C25.7149 9.83561 25.769 10.2874 25.9506 10.6947V10.8027C26.1234 11.2021 26.4104 11.5427 26.7763 11.7826C27.1421 12.0226 27.5709 12.1513 28.0097 12.1531H28.2415C28.9648 12.1531 29.6585 12.4376 30.17 12.9441C30.6814 13.4505 30.9688 14.1375 30.9688 14.8537C30.9688 15.57 30.6814 16.2569 30.17 16.7634C29.6585 17.2699 28.9648 17.5544 28.2415 17.5544H28.1187C27.68 17.5561 27.2512 17.6849 26.8854 17.9248C26.5195 18.1647 26.2325 18.5054 26.0597 18.9047Z"
+      fill="white"
+      fill-opacity="0.6"
+    />
+    <ellipse cx="15.9688" cy="14.8536" rx="5.00005" ry="4.95124" fill="white" />
+  </svg>
+);
 
 const Header = () => {
-  const location = useLocation();
-
   const [showSideNav, setShowSideNav] = useState(false);
 
   const toggleSideNav = () => {
@@ -29,112 +47,19 @@ const Header = () => {
 
       <div className="logo">
         <Link to={DASHBOARD}>
-          <img
-            src="https://res.cloudinary.com/djnhrvjyf/image/upload/v1618660904/logo_r8zeo7.png"
-            alt=""
-          />
+          <img src={ajollaLogo} alt="logo" />
         </Link>
       </div>
 
-      {/* DASHBOARD HEADERS */}
-      {location.pathname === "/dashboard" ||
-      location.pathname === "/dashboard/" ? (
-        <React.Fragment>
-          <div className="filters">
-            <div className="date-time">
-              <FilterDate />
-            </div>
-          </div>
+      <div className="header-options">
+        <div className="search">
+          <input type="text" name="search" placeholder="Type here...." />
+          <img src={searchIcon} alt="icon" className="search-icon" />
+        </div>
 
-          <div
-            className="refresh-page"
-            onClick={() => window.location.reload()}
-          >
-            <FontAwesomeIcon icon={faRedo} className="refresh-page-icon" />
-          </div>
-        </React.Fragment>
-      ) : (
-        ""
-      )}
-
-      {/* CUSTOMER HEADERS */}
-      {
-        //   location.pathname === CUSTOMERS ||
-        // location.pathname === `${CUSTOMERS}/` ? (
-        //   <div className="customer-header">
-        //     <DropdownFilter
-        //       options={["All User", "Form Users Only"]}
-        //       selectOption={e => setHeaderFilter(e.target.innerText)}
-        //       backdrop={false}
-        //       optionSelected={headerFilter}
-        //     />
-        //     <RegularButton
-        //       buttonText="Add User"
-        //       buttonClick={() => {
-        //         setAddCustomerAnimation(true);
-        //         setAddCustomerModal(true);
-        //       }}
-        //     />
-        //   </div>
-        // ) : (
-        //   ""
-        //   )
-      }
-
-      {/* POST HEADERS */}
-      {
-        //   location.pathname === POST || location.pathname === `${POST}/` ? (
-        //   <div className="post-header">
-        //     <RegularButton
-        //       buttonText="Add New Post"
-        //       buttonClick={() => {
-        //         setAddPostModal(true);
-        //         setAddPostAnimation(true);
-        //       }}
-        //     />
-        //   </div>
-        // ) : (
-        //   ""
-        //   )
-      }
-
-      {/* Charity HEADERS */}
-      {
-        //   location.pathname === CHARITY || location.pathname === `${CHARITY}/` ? (
-        //   <div className="charity-header">
-        //     <RegularButton
-        //       buttonText="Add New Charity"
-        //       buttonClick={() => {
-        //         setAddCharityModal(true);
-        //         setAddCharityModalAnimation(true);
-        //       }}
-        //     />
-        //   </div>
-        // ) : (
-        //   ""
-        //   )
-      }
-
-      {/* DONATION HEADERS */}
-      {
-        //   location.pathname === DONATIONS ||
-        // location.pathname === `${DONATIONS}/` ? (
-        //   <div className="doantion-header">
-        //     <RegularButton
-        //       buttonText="Add New Donation"
-        //       buttonClick={() => {
-        //         setAddDonationsModal(true);
-        //         setAddDonationModalAnimation(true);
-        //       }}
-        //     />
-        //   </div>
-        // ) : (
-        //   ""
-        //   )
-      }
-
-      <div className="mobile-filter">
-        <MobileFilters />
+        <span className="settings-icon">{settingsIcon}</span>
+        {/* <img src={settingIcon} alt="icon" /> */}
+        <img src={rotate} alt="icon" className="reload-icon" />
       </div>
 
       {/* SIDE NAV DRAWER */}
