@@ -23,19 +23,22 @@ const starRating = (
 );
 
 const Dashboard = () => {
-  const [campaings, setCampaings] = useState([]);
+  const [ongoingCampaings, setOngoingCampaings] = useState([]);
+  const [completedCampaings, setCompletedCampaings] = useState([]);
+  const [supportedCampaings, setSupportedCampaings] = useState([]);
 
-  const dashboardMobile = [
+  const dashboardTabs = [
     {
       tabName: "Ongoing",
       tabContent: (
         <React.Fragment>
-          {campaings?.map((campaing, index) =>
-            campaing.status === "PENDING" ? (
-              <CampaingCard key={index} campaingDetails={campaing} />
-            ) : (
-              ""
-            )
+          {ongoingCampaings?.map((campaing, index) => (
+            <CampaingCard key={index} campaingDetails={campaing} />
+          ))}
+          {ongoingCampaings.length < 1 && (
+            <div className="empty">
+              <span>No ongoing campaing</span>
+            </div>
           )}
         </React.Fragment>
       ),
@@ -45,22 +48,36 @@ const Dashboard = () => {
     {
       tabName: "Completed",
       tabContent: (
-        <div className="empty">
-          <span>No completed campaing</span>
-        </div>
+        <React.Fragment>
+          {completedCampaings?.map((campaing, index) => (
+            <CampaingCard key={index} campaingDetails={campaing} />
+          ))}
+          {completedCampaings.length < 1 && (
+            <div className="empty">
+              <span>No completed campaing</span>
+            </div>
+          )}
+        </React.Fragment>
       ),
       tabValue: null,
-      tabIndex: 3,
+      tabIndex: 2,
     },
     {
       tabName: "Reported",
       tabContent: (
-        <div className="empty">
-          <span>No Reported campaing</span>
-        </div>
+        <React.Fragment>
+          {supportedCampaings?.map((campaing, index) => (
+            <CampaingCard key={index} campaingDetails={campaing} />
+          ))}
+          {supportedCampaings.length < 1 && (
+            <div className="empty">
+              <span>No reported campaing</span>
+            </div>
+          )}
+        </React.Fragment>
       ),
       tabValue: null,
-      tabIndex: 2,
+      tabIndex: 3,
     },
   ];
 
@@ -68,9 +85,17 @@ const Dashboard = () => {
     Request()
       .get("/campaigns")
       .then((data) => {
-        console.log(data);
-        console.log(data.data.data.data[0].status);
-        setCampaings(data.data.data.data);
+        // console.log(data);
+        // console.log(data.data.data.data[0].status);
+        data.data.data.data.forEach((campaing) => {
+          if (campaing.status === "PENDING") {
+            setOngoingCampaings(campaing);
+          } else if (campaing.status === "COMPLETED") {
+            setCompletedCampaings(campaing);
+          } else if (campaing.status === "SUPPORTED") {
+            setSupportedCampaings(campaing);
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -80,7 +105,7 @@ const Dashboard = () => {
     Request()
       .get("/dashboard")
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -96,7 +121,7 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="campaigns-tabs">
         <div className="tabs">
-          <TabsComponent tabItems={dashboardMobile} />
+          <TabsComponent tabItems={dashboardTabs} />
         </div>
       </div>
       <div className="dashboard-content">

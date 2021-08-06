@@ -6,27 +6,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import GeneralContextProvider from "./context/generalContext/generalContext";
 import AuthContextProvider from "./context/authContext/authContext";
-import UsersContextProvider from "./context/usersContext/usersContext";
-import TaskContexttProvider from "./context/taskcontext/taskContext";
-import PostsContextProvider from "./context/postContext/postContext";
-import CharityContextProvider from "./context/charityContext/charityContext";
-import DonationsContextProvider from "./context/donationsContext/donationContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <GeneralContextProvider>
       <AuthContextProvider>
-        <TaskContexttProvider>
-          <UsersContextProvider>
-            <PostsContextProvider>
-              <CharityContextProvider>
-                <DonationsContextProvider>
-                  <App />
-                </DonationsContextProvider>
-              </CharityContextProvider>
-            </PostsContextProvider>
-          </UsersContextProvider>
-        </TaskContexttProvider>
+        <App />
       </AuthContextProvider>
     </GeneralContextProvider>
   </React.StrictMode>,
